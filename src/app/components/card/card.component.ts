@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-
+  card_text = 'Ant Man';
+  card_text_2 = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
 }
