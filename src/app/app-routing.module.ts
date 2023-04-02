@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-  {path: 'movies',
+  {
+    path: 'movies',
     component: MoviesComponent
   },
   {
