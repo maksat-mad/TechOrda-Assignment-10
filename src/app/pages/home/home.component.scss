@@ -1,0 +1,19 @@
+.video-container {
+  margin-top: 25px;
+  position: relative;
+}
+
+.video-text {
+  font-weight: 700;
+  position: absolute;
+  color: yellow;
+  font-size: 2rem;
+  top: 110px;
+  left: 25px;
+}
+
+@media(max-width: 800px) {
+  .video-container {
+    display: none;
+  }
+}
