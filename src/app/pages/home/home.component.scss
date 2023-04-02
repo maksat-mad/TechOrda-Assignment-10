@@ -1,5 +1,5 @@
 .video-container {
-  margin-top: 25px;
+  margin: 25px;
   position: relative;
 }
 
@@ -12,8 +12,31 @@
   left: 25px;
 }
 
+iframe {
+  width: 714px;
+  height: 400px;
+}
+
 @media(max-width: 800px) {
-  .video-container {
-    display: none;
+  .video-text {
+    font-size: 1.5rem;
+    top: 90px;
+  }
+
+  iframe {
+    width: 476px;
+    height: 267px;
+  }
+}
+
+@media(max-width: 530px) {
+  .video-text {
+    font-size: 1rem;
+    top: 50px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 }
