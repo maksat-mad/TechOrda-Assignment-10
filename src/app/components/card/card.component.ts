@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Movie} from "../../modals/movie";
 
 @Component({
   selector: 'app-card',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  card_text = 'Ant Man';
-  card_text_2 = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+  @Input() movie!: Movie;
+  img_path_prefix = 'assets/movie-covers/';
 }

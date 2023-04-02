@@ -1,11 +1,12 @@
 <div class="card card-prop truncate-long-texts animate-img-hover">
   <a routerLink="/" class="text-decoration-none">
-    <div class="card-rating">
-      <div class="card-rating-text">7.3</div>
+    <div class="card-rating"
+         [ngClass]="+movie.rate >= 7.5 ? 'text-bg-success' : +movie.rate >= 7 ? 'text-bg-secondary' : 'text-bg-danger'">
+      <div class="card-rating-text">{{movie.rate}}</div>
       </div>
-    <img src="assets/movie-covers/ant-man.jpg" alt="ant-man"/>
+    <img src="{{img_path_prefix + movie.img}}" alt="ant-man"/>
     <div class="card-body text-secondary fw-semibold">
-      <p class="card-text">{{card_text_2.length < 14 ? card_text_2 : card_text_2.substring(0, 14) + '.'}}</p>
+      <p class="card-text">{{movie.name.length < 18 ? movie.name : movie.name.substring(0, 18) + '.'}}</p>
     </div>
   </a>
 </div>
