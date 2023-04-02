@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+
+header {
+  padding: 12px;
+  background-color: #222;
+}
+
+body {
+  background-color: #f0f7f1;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+footer {
+  padding: 30px;
+  background-color: #222;
+}
+
+.bigger-on-hover:hover {
+  transition: all 0.4s ease-in-out;
+  transform: scale(1.1);
+}
+
+.text-white-yellow-on-hover {
+  color: #FFFFFF;
+}
+
+.text-white-yellow-on-hover:hover {
+  color: yellow;
+}
