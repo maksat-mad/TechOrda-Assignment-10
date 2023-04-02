@@ -1,7 +1,7 @@
 import {genreType} from "../modals/genre-type";
-import {Movies} from "../modals/movie";
+import {Movie} from "../modals/movie";
 
-export const movies: Movies[] = [
+export const movies: Movie[] = [
   {
     id: 1,
     key: "deadpool",

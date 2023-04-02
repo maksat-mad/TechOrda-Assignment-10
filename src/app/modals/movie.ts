@@ -1,6 +1,6 @@
 import {GenreType} from "./genre-type";
 
-export interface Movies {
+export interface Movie {
   id: number,
   key: string,
   name: string,
