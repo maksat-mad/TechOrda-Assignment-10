@@ -41,3 +41,14 @@
   text-align: center;
   color: #fff;
 }
+
+.animate-img-hover > a > img {
+  transition: all 0.4s ease-in-out;
+  transform: scale(1);
+}
+
+.animate-img-hover:hover > a > img {
+  transition: all 0.4s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 0 8px 6px -6px #6C7A89;
+}
