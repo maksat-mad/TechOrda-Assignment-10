@@ -3,7 +3,7 @@ import {Movie} from "../modals/movie";
 import {Observable, of} from "rxjs";
 import {movies} from "../mock-data/movies-data";
 import {Filter} from "../modals/search";
-import {applyQueryFilter} from "./movie-service-helper";
+import {applyGenreFilter, applyQueryFilter, applySortingTypeFilter} from "./movie-service-helper";
 
 @Injectable({
   providedIn: 'root'
@@ -14,24 +14,17 @@ export class MovieService {
   }
 
   getMoviesByFilter(filter: Filter): Observable<Movie[]> {
-    let result = of(movies);
+    let filteredMovies = of(movies);
 
     // 1. query
-    result = applyQueryFilter(filter.query, result);
+    filteredMovies = applyQueryFilter(filter.query, filteredMovies);
 
     // 2. sorting type
-    // if (filter.sortingType !== 'all') {
-    //   switch (filter.sortingType) {
-    //     case 'name':
-    //
-    //   }
-    // }
+    filteredMovies = applySortingTypeFilter(filter.sortingType, filteredMovies);
 
     // 3. genre
-    return result;
-    // return of(movies)
-    //   .pipe(
-    //     map((movies: Movie[]) => movies.filter((movie: Movie) => movie.genres.includes(genre)))
-    //   );
+    filteredMovies = applyGenreFilter(filter.genreType, filteredMovies);
+
+    return filteredMovies;
   }
 }
