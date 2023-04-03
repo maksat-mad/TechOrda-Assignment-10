@@ -1,4 +1,4 @@
-<select class="custom-select p-1">
+<select #sort (change)="selectedValue(sort.value)" class="custom-select p-1">
   <option value="all" selected>{{sorting.sortingType}}</option>
   <option *ngFor="let option of sorting.options" value="{{option}}">{{option}}</option>
 </select>

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Sorting} from "../../../modals/search";
 
 @Component({
@@ -8,4 +8,8 @@ import {Sorting} from "../../../modals/search";
 })
 export class SelectorComponent {
   @Input() sorting!: Sorting;
+  @Output() selectedOption = new EventEmitter();
+  selectedValue(value: string) {
+    this.selectedOption.emit(value);
+  }
 }

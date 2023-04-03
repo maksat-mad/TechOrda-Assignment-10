@@ -3,20 +3,24 @@
     <div class="d-flex justify-content-center my-auto">
       <div class="input-group mb-3 search-width">
         <input
+          name="query"
           type="text"
           class="form-control"
           aria-label="Default"
           aria-describedby="inputGroup-sizing-default"
           placeholder="Search..."
+          [ngModel]="filter.query"
+          (ngModelChange)="queryChange($event)"
+          autocomplete="off"
         >
       </div>
     </div>
-  </div>
-
-  <div class="row">
     <div class="d-flex justify-content-center my-auto input-group mb-3 gap-5">
-      <app-selector [sorting]="sortingTypes"></app-selector>
-      <app-selector [sorting]="sortGenre"></app-selector>
+      <app-selector [sorting]="sortingTypes" (selectedOption)="sortingChange($event)"></app-selector>
+      <app-selector [sorting]="sortGenre" (selectedOption)="genreChange($event)"></app-selector>
     </div>
+  </div>
+  <div class="row">
+    <h4 class="text-secondary">Popular Movies</h4>
   </div>
 </div>

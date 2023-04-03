@@ -11,6 +11,7 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CardComponent } from './components/UI/card/card.component';
 import { SelectorComponent } from './components/UI/selector/selector.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,11 +24,12 @@ import { SelectorComponent } from './components/UI/selector/selector.component';
     CardComponent,
     SelectorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
