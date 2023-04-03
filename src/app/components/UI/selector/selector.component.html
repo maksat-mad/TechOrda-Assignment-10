@@ -1,0 +1,4 @@
+<select class="custom-select p-1">
+  <option value="" selected>{{sorting.sortingType}}</option>
+  <option *ngFor="let option of sorting.options" value="{{option}}">{{option}}</option>
+</select>

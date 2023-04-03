@@ -9,7 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { CardComponent } from './components/card/card.component';
+import { CardComponent } from './components/UI/card/card.component';
+import { SelectorComponent } from './components/UI/selector/selector.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardComponent } from './components/card/card.component';
     HomeComponent,
     MoviesComponent,
     NotFoundComponent,
-    CardComponent
+    CardComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,22 @@
-<p>movies works!</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="d-flex justify-content-center my-auto">
+      <div class="input-group mb-3 search-width">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Search..."
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-flex justify-content-center my-auto input-group mb-3 gap-5">
+      <app-selector [sorting]="sortingTypes"></app-selector>
+      <app-selector [sorting]="sortGenre"></app-selector>
+    </div>
+  </div>
+</div>
