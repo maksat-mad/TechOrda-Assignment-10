@@ -21,6 +21,15 @@
     </div>
   </div>
   <div class="row">
-    <h4 class="text-secondary">Popular Movies</h4>
+    <h4 class="text-secondary fw-semibold">Popular Movies</h4>
+    <div *ngIf="movies.length === 0" class="d-flex justify-content-around flex-wrap gap-3 p-4">
+      <h5 class="text-danger">No such movie</h5>
+    </div>
+    <div *ngIf="movies.length > 0" class="d-flex justify-content-around flex-wrap gap-3 p-4">
+      <app-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-card>
+    </div>
   </div>
 </div>

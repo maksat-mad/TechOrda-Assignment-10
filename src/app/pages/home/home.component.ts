@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Movie} from "../../modals/movie";
 import {MovieService} from "../../services/movie.service";
 
@@ -7,7 +7,7 @@ import {MovieService} from "../../services/movie.service";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   movieService = inject(MovieService);
   movies: Movie[] = [];
 

@@ -1,19 +1,31 @@
-import {Component} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {sortGenre, sortingTypes} from "../../mock-data/search-data";
 import {Filter} from "../../modals/search";
+import {Movie} from "../../modals/movie";
+import {MovieService} from "../../services/movie.service";
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit {
+  movieService = inject(MovieService);
   sortingTypes = sortingTypes;
   sortGenre = sortGenre;
   filter: Filter = {
     query: '',
     sortingType: 'all',
     genreType: 'all'
+  }
+  movies: Movie[] = [];
+
+  ngOnInit(): void {
+    this.movieService.getAllMovies().subscribe({
+      next: movies => {
+        this.movies = movies;
+      }
+    });
   }
 
   queryChange(query: string) {

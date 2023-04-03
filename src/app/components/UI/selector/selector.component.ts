@@ -3,8 +3,10 @@ import {Sorting} from "../../../modals/search";
 
 @Component({
   selector: 'app-selector',
-  templateUrl: './selector.component.html',
-  styleUrls: ['./selector.component.scss']
+  template: '<select #sort (change)="selectedValue(sort.value)" class="custom-select p-1">\n' +
+    '  <option value="all" selected>{{sorting.sortingType}}</option>\n' +
+    '  <option *ngFor="let option of sorting.options" value="{{option}}">{{option}}</option>\n' +
+    '</select>'
 })
 export class SelectorComponent {
   @Input() sorting!: Sorting;
