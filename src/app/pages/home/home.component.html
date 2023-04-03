@@ -1,18 +1,21 @@
 <div class="container">
-<!--  <div class="row">-->
-<!--    <div class="d-flex justify-content-center">-->
-<!--      <div class="video-container">-->
-<!--        <p class="video-text">Кинопоиск, watch MOVIES with us</p>-->
-<!--        <iframe-->
-<!--          src="https://www.youtube.com/embed/gMllB8eieII?rel=0&amp;autoplay=1&mute=1&loop=1&showinfo=0&controls=0&playlist=gMllB8eieII"-->
-<!--          frameborder="0"></iframe>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
   <div class="row">
-    <app-card
-      *ngFor="let movie of movies"
-      [movie]="movie"
-    ></app-card>
+    <div class="d-flex justify-content-center">
+      <div class="video-container">
+        <p class="video-text">Кинопоиск, watch MOVIES with us</p>
+        <iframe
+          src="https://www.youtube.com/embed/gMllB8eieII?rel=0&amp;autoplay=1&mute=1&loop=1&showinfo=0&controls=0&playlist=gMllB8eieII"
+          frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <a routerLink="/movies" class="text-decoration-none text-secondary-red-on-hover"><h3>Popular Movies</h3></a>
+    <div class="d-flex justify-content-around flex-wrap gap-3 p-4">
+      <app-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-card>
+    </div>
   </div>
 </div>
