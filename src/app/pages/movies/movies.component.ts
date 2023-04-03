@@ -21,11 +21,12 @@ export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
 
   ngOnInit(): void {
-    this.movieService.getAllMovies().subscribe({
+    const subscription = this.movieService.getAllMovies().subscribe({
       next: movies => {
         this.movies = movies;
       }
     });
+    subscription.unsubscribe();
   }
 
   queryChange(query: string) {
@@ -44,6 +45,11 @@ export class MoviesComponent implements OnInit {
   }
 
   fetchData() {
-    console.log(this.filter)
+    const subscription = this.movieService.getMoviesByFilter(this.filter).subscribe({
+      next: movies => {
+        this.movies = movies;
+      }
+    });
+    subscription.unsubscribe();
   }
 }
