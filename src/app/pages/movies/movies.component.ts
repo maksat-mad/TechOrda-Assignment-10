@@ -3,6 +3,7 @@ import {sortGenre, sortingTypes} from "../../mock-data/search-data";
 import {Filter} from "../../modals/search";
 import {Movie} from "../../modals/movie";
 import {MovieService} from "../../services/movie.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-movies',
@@ -18,15 +19,10 @@ export class MoviesComponent implements OnInit {
     sortingType: 'all',
     genreType: 'all'
   }
-  movies: Movie[] = [];
+  movies$: Observable<Movie[]> | undefined;
 
   ngOnInit(): void {
-    const subscription = this.movieService.getAllMovies().subscribe({
-      next: movies => {
-        this.movies = movies;
-      }
-    });
-    subscription.unsubscribe();
+    this.movies$ = this.movieService.getAllMovies();
   }
 
   queryChange(query: string) {
@@ -45,11 +41,6 @@ export class MoviesComponent implements OnInit {
   }
 
   fetchData() {
-    const subscription = this.movieService.getMoviesByFilter(this.filter).subscribe({
-      next: movies => {
-        this.movies = movies;
-      }
-    });
-    subscription.unsubscribe();
+    this.movies$ = this.movieService.getMoviesByFilter(this.filter);
   }
 }
