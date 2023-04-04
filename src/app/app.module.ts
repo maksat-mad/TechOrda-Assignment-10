@@ -12,6 +12,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CardComponent } from './components/UI/card/card.component';
 import { SelectorComponent } from './components/UI/selector/selector.component';
 import {FormsModule} from "@angular/forms";
+import { MovieComponent } from './pages/movie/movie.component';
+import { ExitButtonComponent } from './components/UI/exit-button/exit-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {FormsModule} from "@angular/forms";
     MoviesComponent,
     NotFoundComponent,
     CardComponent,
-    SelectorComponent
+    SelectorComponent,
+    MovieComponent,
+    ExitButtonComponent
   ],
     imports: [
         BrowserModule,

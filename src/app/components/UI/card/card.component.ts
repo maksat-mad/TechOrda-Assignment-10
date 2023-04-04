@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Movie} from "../../../modals/movie";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -7,6 +8,7 @@ import {Movie} from "../../../modals/movie";
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
+  route = inject(Router);
   @Input() movie!: Movie;
   img_path_prefix = 'assets/movie-covers/';
 }
