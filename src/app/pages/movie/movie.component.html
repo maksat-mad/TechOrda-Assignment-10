@@ -1,5 +1,35 @@
-<p>movie works!</p>
-{{movieId}}
-<br/>
-{{prevRoute}}
 <app-exit-button [prevRoute]="prevRoute"></app-exit-button>
+<div *ngIf="(movie$ | async | json) === undefined ? noSuchMovie() : false"></div>
+<div class="container" *ngIf="movie$ | async; let movie">
+  <div class="row mt-5">
+    <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
+      <div>
+        <img src="{{'assets/movie-covers/' + movie.img}}" alt="{{movie.key}}"/>
+      </div>
+      <div class="width-550 text-center">
+        <h3>{{movie.name}}</h3>
+        <ngb-rating
+          [rate]="+movie.rate"
+          [readonly]="true"
+          [max]="10"
+        ></ngb-rating>
+        <h6>Rating: {{movie.rate}}</h6>
+        <h6>Genres: {{movie.genres}}</h6>
+        <h6>Length: {{movie.length}}</h6>
+        <p>{{movie.description}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5" *ngIf="(this.movieService.getMoviesByGenre(movie.genres, movie.id)) | async; let movies">
+    <h4 class="text-secondary fw-semibold">Related Movies</h4>
+    <div *ngIf="movies.length === 0" class="d-flex justify-content-around flex-wrap gap-3 p-4">
+      <h5 class="text-danger">No such movie</h5>
+    </div>
+    <div *ngIf="movies.length > 0" class="d-flex justify-content-around flex-wrap gap-3 p-4">
+      <app-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-card>
+    </div>
+  </div>
+</div>

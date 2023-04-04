@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Movie} from "../modals/movie";
-import {flatMap, Observable, of} from "rxjs";
+import {map, Observable, of} from "rxjs";
 import {movies} from "../mock-data/movies-data";
 import {Filter} from "../modals/search";
 import {applyGenreFilter, applyQueryFilter, applySortingTypeFilter} from "./movie-service-helper";
+import {GenreType} from "../modals/genre-type";
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,28 @@ export class MovieService {
     return of(movies);
   }
 
-  // getMovieById(id: number): Observable<Movie> {
-  //   return of(movies);
-  // }
+  getMovieById(id: number): Observable<Movie | undefined> {
+    return of(movies).pipe(
+      map((movies: Movie[]) => {
+        return movies.find((movie: Movie) => movie.id === id)
+      })
+    );
+  }
+
+  getMoviesByGenre(genres: GenreType[], id: number) {
+    return of(movies).pipe(
+      map((movies: Movie[]) => {
+        return movies.filter((movie: Movie) => {
+          for (let genre of genres) {
+            if (movie.genres.includes(genre) && movie.id !== id) {
+              return true;
+            }
+          }
+          return false;
+        })
+      })
+    );
+  }
 
   getMoviesByFilter(filter: Filter): Observable<Movie[]> {
     let filteredMovies = of(movies);
