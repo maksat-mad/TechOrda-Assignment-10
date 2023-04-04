@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-exit-button',
-  templateUrl: './exit-button.component.html',
-  styleUrls: ['./exit-button.component.scss']
+  template: `<a [routerLink]="prevRoute" class="exit-button bigger-on-hover">
+    <img src="assets/exit.png" alt="exit"/>
+  </a>`,
+  styles: [`.exit-button {
+    position: fixed;
+    right: 20px;
+  }`]
 })
 export class ExitButtonComponent {
-
+  @Input() prevRoute!: string;
 }
