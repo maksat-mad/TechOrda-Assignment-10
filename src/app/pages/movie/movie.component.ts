@@ -17,11 +17,9 @@ export class MovieComponent implements OnInit {
   movieService = inject(MovieService);
   movie$: Observable<Movie | undefined> | undefined;
   movieId: string = '0';
-  prevRoute: string = '/';
 
   ngOnInit(): void {
     this.movieId = this.route.snapshot.paramMap.get('movieId') || '0';
-    this.prevRoute = this.route.snapshot.paramMap.get('prevRoute') || '/';
     this.movie$ = this.movieService.getMovieById(+this.movieId);
   }
 

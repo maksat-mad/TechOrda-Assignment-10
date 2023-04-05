@@ -1,4 +1,4 @@
-<app-exit-button [prevRoute]="prevRoute"></app-exit-button>
+<app-exit-button></app-exit-button>
 <div *ngIf="(movie$ | async | json) === undefined ? noSuchMovie() : false"></div>
 <div class="container" *ngIf="movie$ | async; let movie">
   <div class="row mt-5">
