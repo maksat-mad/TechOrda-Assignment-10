@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
   styles: [`.exit-button {
     position: fixed;
     right: 20px;
+    z-index: 1;
   }`]
 })
 export class ExitButtonComponent {

@@ -12,11 +12,21 @@ const routes: Routes = [
   },
   {
     path: 'movies',
-    component: MoviesComponent
-  },
-  {
-    path: 'movies/:movieId',
-    component: MovieComponent
+    children: [
+      {
+        path: '',
+        component: MoviesComponent
+      },
+      {
+        path: ':movieId',
+        component: MovieComponent
+      },
+      {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: '**',
@@ -25,7 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
