@@ -8,5 +8,4 @@ import {Movie} from "../../../modals/movie";
 })
 export class CardComponent {
   @Input() movie!: Movie;
-  img_path_prefix = 'assets/movie-covers/';
 }
