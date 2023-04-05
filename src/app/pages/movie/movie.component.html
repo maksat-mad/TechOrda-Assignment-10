@@ -1,6 +1,6 @@
 <app-exit-button></app-exit-button>
-<div *ngIf="(movie$ | async | json) === undefined ? noSuchMovie() : false"></div>
-<div class="container" *ngIf="movie$ | async; let movie">
+<div *ngIf="(movie | async | json) === undefined ? noSuchMovie() : false"></div>
+<div class="container" *ngIf="movie | async; let movie">
   <div class="row mt-5">
     <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
       <div>

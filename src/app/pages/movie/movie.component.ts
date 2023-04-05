@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MovieService} from "../../services/movie.service";
-import {Observable} from "rxjs";
+import {Observable, switchMap} from "rxjs";
 import {Movie} from "../../modals/movie";
 
 @Component({
@@ -15,12 +15,12 @@ export class MovieComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   movieService = inject(MovieService);
-  movie$: Observable<Movie | undefined> | undefined;
-  movieId: string = '0';
+  movie: Observable<Movie | undefined> | undefined;
 
   ngOnInit(): void {
-    this.movieId = this.route.snapshot.paramMap.get('movieId') || '0';
-    this.movie$ = this.movieService.getMovieById(+this.movieId);
+    this.movie = this.route.paramMap.pipe(
+      switchMap(paramMap => this.movieService.getMovieById(+paramMap.get('movieId')!))
+    )
   }
 
   noSuchMovie() {
