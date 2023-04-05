@@ -19,10 +19,10 @@ export class MoviesComponent implements OnInit {
     sortingType: 'all',
     genreType: 'all'
   }
-  movies$: Observable<Movie[]> | undefined;
+  movies: Observable<Movie[]> | undefined;
 
   ngOnInit(): void {
-    this.movies$ = this.movieService.getAllMovies();
+    this.movies = this.movieService.getAllMovies();
   }
 
   queryChange(query: string) {
@@ -41,6 +41,6 @@ export class MoviesComponent implements OnInit {
   }
 
   fetchData() {
-    this.movies$ = this.movieService.getMoviesByFilter(this.filter);
+    this.movies = this.movieService.getMoviesByFilter(this.filter);
   }
 }
