@@ -3,7 +3,7 @@
 <div class="container" *ngIf="movie | async; let movie">
   <div class="row mt-5">
     <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
-      <div>
+      <div class="cursor-pointer" (click)="openImageAsModal(content)">
         <img src="{{'assets/movie-covers/' + movie.img}}" alt="{{movie.key}}"/>
       </div>
       <div class="width-550 text-center">
@@ -32,4 +32,8 @@
       ></app-card>
     </div>
   </div>
+
+  <ng-template #content>
+    <img src="{{'assets/movie-covers/' + movie.img}}" alt="{{movie.key}}"/>
+  </ng-template>
 </div>
