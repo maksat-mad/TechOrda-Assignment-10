@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Sorting} from "../../../modals/search";
+import {Sorting} from "../../../models/search";
 
 @Component({
   selector: 'app-selector',

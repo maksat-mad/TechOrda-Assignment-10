@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {sortGenre, sortingTypes} from "../../mock-data/search-data";
-import {Filter} from "../../modals/search";
-import {Movie} from "../../modals/movie";
+import {Filter} from "../../models/search";
+import {Movie} from "../../models/movie";
 import {MovieService} from "../../services/movie.service";
 import {Observable} from "rxjs";
 

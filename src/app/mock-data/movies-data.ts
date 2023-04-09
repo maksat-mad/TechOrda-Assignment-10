@@ -1,5 +1,5 @@
-import {genreType} from "../modals/genre-type";
-import {Movie} from "../modals/movie";
+import {genreType} from "../models/genre-type";
+import {Movie} from "../models/movie";
 
 export const movies: Movie[] = [
   {

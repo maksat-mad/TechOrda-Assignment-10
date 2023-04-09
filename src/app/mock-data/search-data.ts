@@ -1,5 +1,5 @@
-import {Sorting} from "../modals/search";
-import {genreType} from "../modals/genre-type";
+import {Sorting} from "../models/search";
+import {genreType} from "../models/genre-type";
 
 export const sortingTypes: Sorting = {
   sortingType: "Sort",

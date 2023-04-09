@@ -1,6 +1,6 @@
 import {map, Observable, of} from "rxjs";
-import {Movie} from "../modals/movie";
-import {GenreType} from "../modals/genre-type";
+import {Movie} from "../models/movie";
+import {GenreType} from "../models/genre-type";
 
 export function applyQueryFilter(filterQuery: string, filteredMovies: Observable<Movie[]>): Observable<Movie[]> {
   if (filterQuery !== '') {

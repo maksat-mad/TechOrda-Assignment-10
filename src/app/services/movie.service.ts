@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Movie} from "../modals/movie";
+import {Movie} from "../models/movie";
 import {map, Observable, of} from "rxjs";
 import {movies} from "../mock-data/movies-data";
-import {Filter} from "../modals/search";
+import {Filter} from "../models/search";
 import {applyGenreFilter, applyQueryFilter, applySortingTypeFilter} from "./movie-service-helper";
-import {GenreType} from "../modals/genre-type";
+import {GenreType} from "../models/genre-type";
 
 @Injectable({
   providedIn: 'root'

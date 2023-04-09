@@ -2,7 +2,7 @@ import {Component, inject, OnInit, TemplateRef} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MovieService} from "../../services/movie.service";
 import {Observable, switchMap} from "rxjs";
-import {Movie} from "../../modals/movie";
+import {Movie} from "../../models/movie";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
